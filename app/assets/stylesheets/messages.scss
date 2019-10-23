@@ -46,3 +46,49 @@
     }
   }
 }
+.main-content{
+  width: calc(100vw - 300px);
+  height: 100vh;
+  background-color: #f5f5f5;
+  float: right;
+
+  &__header {
+    padding: 0px 40px;
+    height: 100px;
+    background-color: white;
+
+    &__name {
+      float: left;
+      h2 {
+        padding: 30px 0 10px;
+        font-size: 20px;
+        letter-spacing: 2px;
+        color: #333333;
+      }
+
+      h3 {
+        padding-bottom: 15px;
+        font-size: 12px;
+        color: #999999;
+        float: left;
+      }
+    }
+    
+    &__edit-btn {
+      float: right;
+      display: inline-block;
+      margin: 28px 0;
+      padding: 0 20px;
+      line-height: 40px;
+      color: lightblue;
+      font-size: 14px;
+      border: 2px solid;
+      text-align: center;
+
+      &__edit {
+        text-decoration: none;
+        color: lightblue;
+      }
+    }
+  } 
+}
