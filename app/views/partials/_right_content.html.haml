@@ -15,14 +15,15 @@
       = "message-time"
     .main-content__chat-parts__message
       = "message"
-      
-  
-  .main-content__footer
-    .main-content__footer__textbox
-    .main-content__footer__icon
-      = link_to "https://www.facebook.com/",class: "side-content__footer__icon" do
-        = fa_icon "picture-o"
-    .main-content__footer__message
-      = link_to "Send","https://www.facebook.com/", class: 'main-content__footer__message__send'
-    
+
+  .main-content__footer   
+    .form
+      %form.messageform
+        .messageform__textandicon
+          %input{type:"text",placeholder:"type a message",class:"messageform__textandicon--text"}
+          %label
+            =fa_icon "image",class:"messageform__textandicon--icon",title:"画像ファイルを選択"
+            %input{type:"file",class:"messageform__textandicon--file"}
+        %input{type:"submit", value:"send", class:"messageform__textandicon--send"}
+
     
