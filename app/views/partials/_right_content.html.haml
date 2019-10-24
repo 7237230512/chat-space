@@ -1,0 +1,29 @@
+.main-content
+  .main-content__header
+    .main-content__header__name
+      %h2
+        ="group-name"
+      %h3
+        ="group-member"
+    .main-content__header__edit-btn
+      = link_to "Edit","https://www.facebook.com/", class: 'main-content__header__edit-btn__edit'
+
+  .main-content__chat-parts
+    .main-content__chat-parts__name
+      ="user-name"
+    .main-content__chat-parts__time
+      = "message-time"
+    .main-content__chat-parts__message
+      = "message"
+
+  .main-content__footer   
+    .form
+      %form.messageform
+        .messageform__textandicon
+          %input{type:"text",placeholder:"type a message",class:"messageform__textandicon--text"}
+          %label
+            =fa_icon "image",class:"messageform__textandicon--icon",title:"画像ファイルを選択"
+            %input{type:"file",class:"messageform__textandicon--file"}
+        %input{type:"submit", value:"send", class:"messageform__textandicon--send"}
+
+    
