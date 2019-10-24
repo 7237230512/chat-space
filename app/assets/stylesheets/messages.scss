@@ -26,11 +26,14 @@
     }
 
     &__icon {
+
+      i{
         color:#ffffff;
         font-size: 20px;
         line-height: 100px;
         letter-spacing: 6px;
         float: right;
+      }
     }
   }
 
@@ -99,7 +102,7 @@
   }
   &__chat-parts {
     padding: 46px 40px 40px;
-    height: calc(100% - 250px);
+    height: calc(100vh - 275px);
     background-color: #fafafa;
 
       &__name {
@@ -130,56 +133,65 @@
 
   &__footer{
     padding: 20px 40px;
-    position: fixed;
     bottom: 0;
     width: calc(100vw - 380px);
     height: 50px;
     background-color: lightgray;
+  }  
+}
 
-    &__textbox {
-      padding-left: 10px;
-      width: 890px;
-      height: 50px;
-      line-height: 50px;
-      background-color: white;
-      font-size: 16px;
-      border: none;
-      resize: none;
-      float: left;
-      position: relative;/*親要素を固定*/
+.messageform{
+  &__textandicon {
+    padding:0px 10px;
+    width: 890px;
+    height: 50px;
+    line-height: 50px;
+    background-color: white;
+    font-size: 16px;
+    position: relative;/*親要素を固定*/
+    &:focus::placeholder{
+      color:white;
     }
-    
-    &__icon {
-      color:#ffffff;
+  
+    &--text{
+      padding:0px 10px;
+      border:solid 0px;
+      width: 900px;
+      height: 100%;
+    }
+
+
+    &--icon {
       font-size: 20px;
-      width: 30px;
-      height: 50px;
       text-align: center;
       line-height: 50px;
       background-color: white;
       float: left;
-      padding-right: 10px;
-      text-decoration: none;
+      display: none;
+      position: absolute;
+      top: 25px;
+      right: 10px;
     }
 
-    &__message {
-      display: inline-block;
-      background-color:#38aef0;
-      padding-right: 30px;
-      padding-left: 30px;
-      line-height: 50px;
-      color: lightblue;
-      font-size: 16px;
-      border: none;
-      text-align: center;
-      float: right;
-
-      &__send {
-        text-decoration: none;
-        color: white;
-      }
+    &--file {
+      display: none;
     }
-
-    
   }
+
+  &__textandicon--send {
+    display: inline;
+    width: 100px;
+    background-color:#38aef0;
+    line-height: 50px;
+    color: lightblue;
+    font-size: 16px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    bottom: 0px;
+    right: 50px;
+
+    }
 }
