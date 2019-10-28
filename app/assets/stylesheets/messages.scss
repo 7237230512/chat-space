@@ -39,13 +39,16 @@
     letter-spacing: 2px;
     display: block;
 
-    &__name {
-      font-size: 15px;
-      padding-bottom: 5px;
-    }
+    &__group{
 
-    &__message {
-      font-size: 11px;
+      &__name {
+        font-size: 15px;
+        padding-bottom: 5px;
+      }
+
+      &__message {
+        font-size: 11px;
+      }
     }
   }
 }
