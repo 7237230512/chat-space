@@ -31,11 +31,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-<<<<<<< HEAD
-    params.require(:group).permit(:name, user_ids: [] )
-=======
     params.require(:group).permit(:name, user_ids:[] )
->>>>>>> 94a77cbf07a33521f1b7b87884e9624c7e66fbbb
   end
 
   def set_group
