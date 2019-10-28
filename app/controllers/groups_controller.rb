@@ -27,13 +27,15 @@ class GroupsController < ApplicationController
       flash.now[:alert] = 'グループの編集に失敗しました'
       render :edit
     end
+  end
 
   private
   def group_params
-    params.require(:group).permit(:name, {user_ids: ==> []} )
+    params.require(:group).permit(:name, user_ids:[] )
   end
 
   def set_group
     @group = Group.find(params[:id])
+  end
 
 end
