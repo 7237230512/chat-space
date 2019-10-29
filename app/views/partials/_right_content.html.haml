@@ -2,12 +2,12 @@
   .main-content__header
     .main-content__header__name
       %h2
-        ="group-name"
-      %h3
-        ="group-member"
+        = @groups
+      %p Members:
+      
+        
     .main-content__header__edit-btn
-      = link_to "Edit","https://www.facebook.com/", class: 'main-content__header__edit-btn__edit'
-
+      = link_to "Edit","###", class: 'main-content__header__edit-btn__edit'
   .main-content__chat-parts
     .main-content__chat-parts__name
       ="user-name"
