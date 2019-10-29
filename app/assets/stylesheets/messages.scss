@@ -52,6 +52,7 @@
     }
   }
 }
+
 .main-content{
   width: calc(100vw - 300px);
   height: 100vh;
@@ -97,98 +98,78 @@
       }
     }
   }
+
   &__chat-parts {
     padding: 46px 40px 40px;
     height: calc(100vh - 275px);
     background-color: #fafafa;
 
-      &__name {
-        display: inline-block;
-        margin-bottom: 10px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #434a54;
-        float: left;
-      }
-
-      &__time {
-        display: inline-block;
-        margin-left: 10px;
-        font-size: 12px;
-        color: #999999;
-        float: left;
-
-      }
-
-      &__message {
-        font-size: 14px;
-        color: #434a54;
-        float: left;
-        clear: both;
-      }
-    }
-
-  &__footer{
-    padding: 20px 40px;
-    bottom: 0;
-    width: calc(100vw - 380px);
-    height: 50px;
-    background-color: lightgray;
-  }  
-}
-
-.messageform{
-  &__textandicon {
-    padding:0px 0px;
-    width: 890px;
-    height: 50px;
-    line-height: 50px;
-    background-color: white;
-    font-size: 16px;
-    position: relative;/*親要素を固定*/
-    &:focus::placeholder{
-      color:white;
-    }
-  
-    &--text{
-      padding:0px 10px;
-      border:solid 0px;
-      width: 100%;
-      height: 100%;
-    }
-
-
-    &--icon {
-      font-size: 20px;
-      text-align: center;
-      line-height: 50px;
-      background-color: white;
+    &__name {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #434a54;
       float: left;
-      display: none;
-      position: absolute;
-      top: 20px;
-      right: 10px;
     }
 
-    &--file {
-      display: none;
+    &__time {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 12px;
+      color: #999999;
+      float: left;
+    }
+
+    &__message {
+      font-size: 14px;
+      color: #434a54;
+      float: left;
+      clear: both;
     }
   }
-
-  &__textandicon--send {
-    display: inline;
-    width: 100px;
-    background-color:#38aef0;
-    line-height: 50px;
-    color: lightblue;
-    font-size: 16px;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    position: absolute;
-    bottom: -5px;
-    right: 70px;
-
+  
+  .form {
+    background-color: #DDDDDD;
+    box-sizing: border-box;
+    height: 90px;
+    padding: 20px 50px 20px 40px;
+    &__message {
+      border: none;
+      float: left;
+      height: 50px;
+      width: calc(100% - 150px);
     }
+    &__mask {
+      background-color: white;
+      float: left;
+      height: 50px;
+      padding-right: 10px;
+      &__image {
+        font-size: 20px;
+        line-height: 50px;
+      }
+      .hidden {
+        display: none;
+      }
+    }
+    &__submit {
+      background-color: lightblue;
+      border: none;
+      color: white;
+      float: right;
+      font-size: 16px;
+      height: 50px;
+      margin-left: 15px;
+      padding: 0 30px;
+    }
+  }
 }
+
+
+
+
+
+
+
+
