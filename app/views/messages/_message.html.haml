@@ -1,0 +1,10 @@
+.chat-body{data: {id: "#{message.id}"}}
+  .chat-body--name
+    = message.user.name
+  .chat-body--time
+    = message.created_at
+  .chat-body--message
+    - if message.content.present?
+      .chat-body--message__content
+        = message.content
+    = image_tag message.image_url, class: 'chat-body--message__content__image' if message.image_url.present?

@@ -9,12 +9,7 @@
       = link_to "Edit","###", class: 'main-content__header__edit-btn__edit'
 
   .main-content__chat-parts
-    .main-content__chat-parts__name
-      ="user-name"
-    .main-content__chat-parts__time
-      = "message-time"
-    .main-content__chat-parts__message
-      = "message"
+    = render @messages
 
   .main-content__footer
     .form
