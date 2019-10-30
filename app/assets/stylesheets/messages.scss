@@ -3,6 +3,8 @@
   height: 100vh;
   background-color: #2f3e51;
   float: left;
+  box-sizing: border-box;
+  overflow: scroll;
 
 
   &__header {
@@ -31,16 +33,16 @@
     }
   }
 
-  .group-contents{
-    padding: 20px 20px 40px;
+  .group-contents{ 
     height:31px;
     color:#ffffff;
     font-weight: bold;
     letter-spacing: 2px;
     display: block;
-    overflow: scroll;
 
+    
     &__group{
+      padding: 20px 20px 40px;
 
       &__name {
         font-size: 15px;
@@ -51,7 +53,7 @@
 
       &__message {
         font-size: 11px;
-        padding-bottom: 20px;
+        padding-bottom: 10px;
         color:white;
         text-decoration: none;
       }
@@ -85,6 +87,14 @@
         color: #999999;
         float: left;
       }
+
+      span{
+        padding-bottom: 15px;
+        font-size: 12px;
+        color: #999999;
+        float: left;
+        margin-left: 5px;
+      }
     }
 
     &__edit-btn {
@@ -105,33 +115,37 @@
     }
   }
 
-  &__chat-parts {
+  .chat-parts {
     padding: 46px 40px 40px;
-    height: calc(100vh - 275px);
+    height: calc(100% - 190px);
     background-color: #fafafa;
+    box-sizing: border-box;
+    overflow: scroll;
+    .chat-part{
 
-    .chat-body {
-      padding-bottom: 40px;
-      margin-bottom: 40px;
+      .chat-body {
+        padding-bottom: 40px;
+        margin-bottom: 40px;
 
-      &--name {
-        display: inline-block;
-        margin-bottom: 10px;
-        font-size: 16px;
-        font-weight: bold;
-        color: black;
-        float: left;
+        &--name {
+          display: inline-block;
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-weight: bold;
+          color: black;
+          float: left;
+        }
+
+        &--time {
+          display: inline-block;
+          margin-left: 10px;
+          font-size: 12px;
+          color: gray;
+          float: left;
+        }
       }
 
-      &--time {
-        display: inline-block;
-        margin-left: 10px;
-        font-size: 12px;
-        color: gray;
-        float: left;
-      }
-
-      &--message {
+      .message {
         font-size: 14px;
         color: black;
         float: left;
