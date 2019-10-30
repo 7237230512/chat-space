@@ -5,6 +5,7 @@
   float: left;
   box-sizing: border-box;
   overflow: scroll;
+  
 
 
   &__header {
@@ -39,6 +40,7 @@
     font-weight: bold;
     letter-spacing: 2px;
     display: block;
+    overflow: scroll;
 
     
     &__group{
@@ -67,6 +69,7 @@
   background-color: #f5f5f5;
   float: right;
 
+
   &__header {
     padding: 0px 40px;
     height: 100px;
@@ -74,6 +77,7 @@
 
     &__name {
       float: left;
+
       h2 {
         padding: 30px 0 10px;
         font-size: 20px;
@@ -82,14 +86,14 @@
       }
 
       h3 {
-        padding-bottom: 15px;
+        padding-bottom: 5px;
         font-size: 12px;
         color: #999999;
         float: left;
       }
 
       span{
-        padding-bottom: 15px;
+        padding-bottom: 5px;
         font-size: 12px;
         color: #999999;
         float: left;
@@ -121,35 +125,33 @@
     background-color: #fafafa;
     box-sizing: border-box;
     overflow: scroll;
+    width: calc(100vw - 300px);
+
     .chat-part{
 
       .chat-body {
-        padding-bottom: 40px;
-        margin-bottom: 40px;
+        display: flex;
 
-        &--name {
-          display: inline-block;
-          margin-bottom: 10px;
+        &__name {
+          color: black;
           font-size: 16px;
           font-weight: bold;
-          color: black;
-          float: left;
         }
 
-        &--time {
-          display: inline-block;
-          margin-left: 10px;
+        &__time {
+          color: lightgray;
           font-size: 12px;
-          color: gray;
-          float: left;
+          padding-left: 10px;
         }
       }
 
       .message {
-        font-size: 14px;
-        color: black;
-        float: left;
-        clear: both;
+        margin-top: 10px;
+        &__content{
+          font-size: 14px;
+          color: black;
+          margin-bottom: 40px;
+        }
       }
     }
   }
