@@ -31,23 +31,29 @@
     }
   }
 
-  &__group-contents{
+  .group-contents{
     padding: 20px 20px 40px;
     height:31px;
     color:#ffffff;
     font-weight: bold;
     letter-spacing: 2px;
     display: block;
+    overflow: scroll;
 
     &__group{
 
       &__name {
         font-size: 15px;
         padding-bottom: 5px;
+        color: white;
+        text-decoration: none;
       }
 
       &__message {
         font-size: 11px;
+        padding-bottom: 20px;
+        color:white;
+        text-decoration: none;
       }
     }
   }
