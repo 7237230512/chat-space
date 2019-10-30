@@ -2,13 +2,15 @@
   .main-content__header
     .main-content__header__name
       %h2
-        ="group-name"
-      %h3
-        ="group-member"
+        =@group.name
+      %h3 Members:
+      - @group.users.each do |user|
+        %span
+          = user.name
     .main-content__header__edit-btn
-      = link_to "Edit","###", class: 'main-content__header__edit-btn__edit'
+      = link_to "Edit",edit_group_path(@group), class: 'main-content__header__edit-btn__edit'
 
-  .main-content__chat-parts
+  .chat-parts
     = render @messages
 
   .main-content__footer
