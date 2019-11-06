@@ -4,16 +4,15 @@ $(function() {
     if (message.image_url) {
       insertImage = `<img src="${message.image_url}">`;
     }
-    var html = `<div class='chat-body' data-id="${message.id}">
-                  <div class='chat-body--name'>
+    var html = `<div class='chat-part' data-id="${message.id}">
+                  <div class='chat-body__name'>
                     ${message.name}
                   </div>
-                  <div class='chat-body--time'>
+                  <div class='chat-body__time'>
                     ${message.created_at}
                   </div>
-                  <div class='chat-body--message'>
-                    ${message.body}
-                      </div>
+                  <div class='message'>
+                    ${message.content}
                     ${insertImage}
                   </div>
                 </div>`;
@@ -33,22 +32,23 @@ $(function() {
       contentType: false
     })
 
-    .done(function(data) {
-      var html = buildHTML(data);
-      $('.main-content__chat-parts').append(html)
+    .done(function(message) {
+      var html = buildHTML(message);
+      console.log(html)
+      $('.chat-parts').append(html)
       $('#message_content').val('')
-      $('.chat-body').animate({scrollTop: $(".chat-body")[0].scrollHeight}, 1500);
+      $('.chat-parts').animate({scrollTop: $(".chat-parts")[0].scrollHeight}, 1500);
     })
-    .fail(function(){
+    .fail(function() {
       alert('メッセージの送信に失敗しました');
     })
     .always(function(data){
-      $('.submit').prop('disabled', false);　//ここで解除している
+      $('.form__submit').prop('disabled', false);　//ここで解除
     })
   })
 
   function scroll() {
-    $('.chat-body').animate({scrollTop: $('.chat-body')[0].scrollHeight}, 'fast')
+    $('.chat-parts').animate({scrollTop: $('.chat-parts')[0].scrollHeight}, 'fast')
   }
 
   var interval = setInterval(function() {
@@ -60,18 +60,18 @@ $(function() {
     })
 
     .done(function(json) {
-      var last_message_id = $('.chat-body:last').data('id');
+      var last_message_id = $('.chat-part:last').data('id');
       var insertHTML = '';
       json.messages.forEach(function(message) {
         if (message.id > last_message_id ) {
           insertHTML += buildHTML(message);
         }
       });
-      $('.main-content__chat-contents').append(insertHTML);
+      $('.chat-parts').append(insertHTML);
     scroll()
     })
 
-    .fail(function(json) {
+    .fail(function() {
       alert('自動更新に失敗しました');
     });
     } else {

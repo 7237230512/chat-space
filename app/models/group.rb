@@ -11,4 +11,8 @@ class Group < ApplicationRecord
       'まだメッセージはありません。'
     end
   end
+
+  def associate_users(user_ids:)
+    self.users << User.where(id: user_ids)
+  end
 end
