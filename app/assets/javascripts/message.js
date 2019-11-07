@@ -1,44 +1,44 @@
 $(function() {
   function buildHTML(message){
     if (message.image){
-      var html =
+    var html =
       `<div class="chat-part" data-id="${message.id}">
         <div class="chat-body">
-        <div class='chat-body__name'>
-          ${message.user_name}
-        </div>
-        <div class='chat-body__time'>
-          ${message.date}
-        </div>
+          <div class='chat-body__name'>
+            ${message.user_name}
+          </div>
+          <div class='chat-body__time'>
+            ${message.date}
+          </div>
         </div>
-        <div class='message'>
-        <p class = 'message__content'>
-          ${message.content}
-        </p>
+        <div class='message'>
+          <p class = 'message__content'>
+            ${message.content}
+          </p>
         </div>
         <img src=${message.image} >
-        </div>`
+      </div>`
     return html;
     
     } else {
     var html = 
-    `<div class="chat-part" data-id="${message.id}">
+      `<div class="chat-part" data-id="${message.id}">
         <div class="chat-body">
-        <div class='chat-body__name'>
-          ${message.user_name}
-        </div>
-        <div class='chat-body__time'>
-          ${message.date}
-        </div>
+          <div class='chat-body__name'>
+            ${message.user_name}
+          </div>
+          <div class='chat-body__time'>
+            ${message.date}
+          </div>
         </div>
-        <div class='message'>
-        <p class = 'message__content'>
-          ${message.content}
-        </p>
+        <div class='message'>
+          <p class = 'message__content'>
+            ${message.content}
+          </p>
         </div>
-        </div>`
-      return html;
-      };
+      </div>`
+    return html;
+    };
   }
 
 
@@ -55,8 +55,8 @@ $(function() {
       contentType: false
     })
 
-    .done(function(message) {
-      var html = buildHTML(message);
+    .done(function(data) {
+      var html = buildHTML(data);
       $('.chat-parts').append(html)
       $('#message_content').val('')
       $('.chat-parts').animate({scrollTop: $(".chat-parts")[0].scrollHeight}, 1500);
@@ -98,5 +98,6 @@ $(function() {
     });
     } else {
     clearInterval(interval);
-   }} , 1 * 1000 );
+   }} , 3 * 1000 );
 });
+
