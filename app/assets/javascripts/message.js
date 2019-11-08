@@ -67,7 +67,7 @@ $(function() {
     .always(function(data){
       $('.form__submit').prop('disabled', false);　//ここで解除
     })
-  })
+  });
 
   function scroll() {
     $('.chat-parts').animate({scrollTop: $('.chat-parts')[0].scrollHeight}, 'fast')
@@ -98,6 +98,6 @@ $(function() {
     });
     } else {
     clearInterval(interval);
-   }} , 3 * 1000 );
+   }} , 5 * 1000 );
 });
 
