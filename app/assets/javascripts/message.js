@@ -42,7 +42,7 @@ $(function() {
   }
 
 
-  $('#new_message').on('submit', function(e) {
+  $('.js-form').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
@@ -54,50 +54,39 @@ $(function() {
       processData: false,
       contentType: false
     })
-
     .done(function(data) {
       var html = buildHTML(data);
       $('.chat-parts').append(html)
       $('#message_content').val('')
       $('.chat-parts').animate({scrollTop: $(".chat-parts")[0].scrollHeight}, 1500);
-    })
-    .fail(function() {
-      alert('メッセージの送信に失敗しました');
-    })
-    .always(function(data){
-      $('.form__submit').prop('disabled', false);　//ここで解除
-    })
   });
+})
+})
 
-  function scroll() {
-    $('.chat-parts').animate({scrollTop: $('.chat-parts')[0].scrollHeight}, 'fast')
-  }
+//   var interval = setInterval(function() {
+//       if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+//     $.ajax({
+//       url: location.href.json,
+//       type: 'GET',
+//       dataType: 'json'
+//     })
 
-  var interval = setInterval(function() {
-      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
-    $.ajax({
-      url: location.href.json,
-      type: 'GET',
-      dataType: 'json'
-    })
+//     .done(function(json) {
+//       var last_message_id = $('.chat-part:last').data('id');
+//       var insertHTML = '';
+//       json.messages.forEach(function(message) {
+//         if (message.id > last_message_id ) {
+//           insertHTML += buildHTML(message);
+//         }
+//       });
+//       $('.main-content__chat-contents').append(insertHTML);
+//     })
 
-    .done(function(json) {
-      var last_message_id = $('.chat-part:last').data('id');
-      var insertHTML = '';
-      json.messages.forEach(function(message) {
-        if (message.id > last_message_id ) {
-          insertHTML += buildHTML(message);
-        }
-      });
-      $('.main-content__chat-contents').append(insertHTML);
-    scroll()
-    })
-
-    .fail(function(json) {
-      alert('自動更新に失敗しました');
-    });
-    } else {
-    clearInterval(interval);
-   }} , 5 * 1000 );
-});
+//     .fail(function(json) {
+//       alert('自動更新に失敗しました');
+//     });
+//     } else {
+//     clearInterval(interval);
+//    }} , 5 * 1000 );
+// });
 
