@@ -1,46 +1,27 @@
 $(function() {
-  function buildHTML(message){
-    
-    if (message.image.url != null){
-    var html =
-              `<div class="chat-part" data-messageid=${message.id}>
-              <div class="chat-body">
-                  <div class="chat-body__name">
-                  ${message.user_name}
-                  </div>
-                  <div class="chat-body__time">
-                  ${message.created_at}
-                  </div>
-              </div>
-              <div class="message">
-                <p class="message__content">
-                ${message.content}
-                </p>
-              </div>
-                <img src=${message.image.url} >
-            </div>`
+  function buildHTML(message) {
+    image = (message.image) ? `<img class= "message__content" src=${message.content} >` : ""; //三項演算子を使ってmessage.imageにtrueならHTML要素、faiseなら空の値を代入。
+      var html =
+      `
+      <div class="chat-part" data-messageid=${message.id}>
+        <div class="chat-body">
+          <div class="chat-body__name">
+            ${message.user_name}
+          </div>
+          <div class="chat-body__time">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="message">
+          <p class="message__content">
+            ${message.content}
+          </p>
+        </div>
+        <img src=${message.image.url} >
+      </div>`
     return html;
-    
-    } else {
-      var html = 
-            `<div class="chat-part" data-messageid=${message.id}>
-              <div class="chat-body">
-                  <div class="chat-body__name">
-                  ${message.user_name}
-                  </div>
-                  <div class="chat-body__time">
-                  ${message.created_at}
-                  </div>
-              </div>
-              <div class="message">
-                <p class="message__content">
-                ${message.content}
-                </p>
-              </div>
-            </div>`
-      return html;
-    };
-  }
+  };
+  
 
 
   $('.js-form').on('submit', function(e) {
@@ -97,7 +78,7 @@ $(function() {
         //$('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');//最新のメッセージが一番下に表示されようにスクロールする。
       })
       .fail(function () {
-        console.log('error');//ダメだったらアラートを出す
+        alert("失敗しました");//ダメだったらアラートを出す
       });
     }
   };
