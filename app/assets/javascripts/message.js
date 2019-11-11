@@ -3,26 +3,25 @@ $(function() {
     
     if (message.image.url != null){
     var html =
-      `<div class="chat-part" data-message-id=${message.id}>
-        <div class="chat-body">
-          <div class='chat-body__name'>
-            ${message.user_name}
-          </div>
-          <div class='chat-body__time'>
-            ${message.created_at}
-          </div>
-        </div>
-        <div class='message'>
-          <p class = 'message__content'>
-            ${message.content}
-          </p>
-        </div>
-        <img src=${message.image} >
-      </div>`
+              `<div class="chat-part" data-messageid=${message.id}>
+              <div class="chat-body">
+                  <div class="chat-body__name">
+                  ${message.user_name}
+                  </div>
+                  <div class="chat-body__time">
+                  ${message.created_at}
+                  </div>
+              </div>
+              <div class="message">
+                <p class="message__content">
+                ${message.content}
+                </p>
+              </div>
+                <img src=${message.image.url} >
+            </div>`
     return html;
     
     } else {
-      //console.log(message.image.url);
       var html = 
             `<div class="chat-part" data-messageid=${message.id}>
               <div class="chat-body">
@@ -48,7 +47,7 @@ $(function() {
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
-    console.log("成功")
+    
     $.ajax({
       url: url,
       type: "POST",
@@ -61,7 +60,7 @@ $(function() {
       
       var html = buildHTML(data);
       $('.chat-parts').append(html)
-      $('#message_content').val('')
+      $('.js-form')[0].reset();
       $('.chat-parts').animate({scrollTop: $(".chat-parts")[0].scrollHeight}, 1500);
     })
     .fail(function(){
@@ -69,14 +68,15 @@ $(function() {
     })
     .always(function(){
       $('.form__submit').prop("disabled",false);
-    }); 
+    });
+    return false; 
   })
 
   var reloadMessages = function () {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){//今いるページのリンクが/groups/グループID/messagesのパスとマッチすれば以下を実行。
       var last_message_id = $('.chat-part').eq(-1).data("messageid");
       
- //dataメソッドで.messageにある:last最後のカスタムデータ属性を取得しlast_message_idに代入。
+      //dataメソッドで.messageにある:last最後のカスタムデータ属性を取得しlast_message_idに代入。
       
       // var group_id = $(".group").data("group-id");
       
@@ -91,10 +91,9 @@ $(function() {
         var insertHTML = '';//追加するHTMLの入れ物を作る
        
         messages.forEach(function (message) {//配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-        
           insertHTML = buildHTML(message); //メッセージが入ったHTMLを取得
-          $('.chat-parts').append(insertHTML);//メッセージを追加
         })
+        $('.chat-parts').append(insertHTML);//メッセージを追加
         //$('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');//最新のメッセージが一番下に表示されようにスクロールする。
       })
       .fail(function () {
