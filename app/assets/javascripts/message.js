@@ -57,7 +57,7 @@ $(function() {
     .done(function(data) {
       var html = buildHTML(data);
       $('.chat-parts').append(html)
-      $('js-form').val('')
+      $('message_content')[0].reset();
       $('.chat-parts').animate({scrollTop: $(".chat-parts")[0].scrollHeight}, 1500);
   });
 })
