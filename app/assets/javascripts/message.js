@@ -95,11 +95,8 @@ $(function() {
           insertHTML = buildHTML(message); //メッセージが入ったHTMLを取得
         })
         $('.chat-parts').append(insertHTML);//メッセージを追加
-        //$('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');//最新のメッセージが一番下に表示されようにスクロールする。
       })
-      .fail(function () {
-        alert("失敗しました");//ダメだったらアラートを出す
-      });
+      $('.chat-parts').animate({scrollTop: $('.chat-parts')[0].scrollHeight}, 'fast');//最新のメッセージが一番下に表示されようにスクロールする。
     }
   };
   setInterval(reloadMessages, 5000);//5000ミリ秒ごとにreloadMessagesという関数を実行し自動更新を行う。
