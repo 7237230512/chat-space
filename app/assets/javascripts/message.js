@@ -4,6 +4,7 @@ $(function() {
       var html =
       `
       <div class="chat-part" data-messageid=${message.id}>
+
         <div class="chat-body">
           <div class="chat-body__name">
             ${message.user_name}
@@ -22,8 +23,6 @@ $(function() {
     return html;
   };
   
-
-
   $('.js-form').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);

@@ -21,7 +21,7 @@ $(function() {
     let html = `
     <div class="chat-group-user clearfix" id="${id}">
       <p class="chat-group-user__name">${name}</p>
-      <div class="chat-group-user__remove chat-group-user__btn" data-user-id="${id}" data-user-name="${name}">削除</div>
+      <div class="chat-group-user__remove chat-group-user__btn chat-group-user__btn--remove" data-user-id="${id}" data-user-name="${name}">削除</div>
     </div>`;
     $("#chat-group-users.js-add-user").append(html);
   }
@@ -55,7 +55,6 @@ $(function() {
       });
   });
   $(document).on("click", ".chat-group-user__btn--add", function() {
-    
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
     $(this)
@@ -70,3 +69,8 @@ $(function() {
       .remove();
   });
 });
+
+
+
+
+
