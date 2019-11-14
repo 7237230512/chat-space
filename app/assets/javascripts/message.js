@@ -66,7 +66,7 @@ $(function() {
       $('.chat-parts').animate({scrollTop: $(".chat-parts")[0].scrollHeight}, 1500);
     })
     .fail(function(){
-      alert("失敗しました")
+      alert("メッセージの送信に失敗しました");
     })
     .always(function(){
       $('.form__submit').prop("disabled",false);
@@ -93,11 +93,16 @@ $(function() {
        
         messages.forEach(function (message) {//配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
           insertHTML = buildHTML(message); //メッセージが入ったHTMLを取得
-        })
-        $('.chat-parts').append(insertHTML);//メッセージを追加
+          $('.chat-parts').append(insertHTML);//メッセージを追加
       })
       $('.chat-parts').animate({scrollTop: $('.chat-parts')[0].scrollHeight}, 'fast');//最新のメッセージが一番下に表示されようにスクロールする。
+    })
+    .fail(function(){
+      alert("自動更新に失敗しました");
+    });
     }
   };
   setInterval(reloadMessages, 5000);//5000ミリ秒ごとにreloadMessagesという関数を実行し自動更新を行う。
 })
+
+
