@@ -59,11 +59,14 @@ $(function() {
       contentType: false
     })
     .done(function(data) {
-      
-      var html = buildHTML(data);
-      $('.chat-parts').append(html)
-      $('.js-form')[0].reset();
-      $('.chat-parts').animate({scrollTop: $(".chat-parts")[0].scrollHeight}, 1500);
+      if (data.content=="" && data.image==null){
+        alert("メッセージを入力してください")
+      }else{
+        var html = buildHTML(data);
+        $('.chat-parts').append(html)
+        $('.js-form')[0].reset();
+        $('.chat-parts').animate({scrollTop: $(".chat-parts")[0].scrollHeight}, 1500);
+      }
     })
     .fail(function(){
       alert("メッセージの送信に失敗しました");
@@ -102,7 +105,7 @@ $(function() {
     });
     }
   };
-  setInterval(reloadMessages, 5000);//5000ミリ秒ごとにreloadMessagesという関数を実行し自動更新を行う。
+  setInterval(reloadMessages, 500000);//5000ミリ秒ごとにreloadMessagesという関数を実行し自動更新を行う。
 })
 
 
